@@ -1,0 +1,281 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row mt-4">
+
+  <div class="col-8 offset-2">
+
+    <h2 class="mb-4">Edit Tourist Destination</h2>
+
+    <form
+      method="POST"
+      action="/listings/<%= listing._id %>?_method=PUT"
+      enctype="multipart/form-data"
+      novalidate
+      class="needs-validation"
+    >
+
+      <!-- TITLE -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Tourist Place Name
+        </label>
+
+        <input
+          name="listing[title]"
+          value="<%= listing.title %>"
+          type="text"
+          class="form-control"
+          required
+        />
+
+      </div>
+
+
+
+      <!-- DESCRIPTION -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Description
+        </label>
+
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          rows="4"
+          required
+        ><%= listing.description %></textarea>
+
+      </div>
+
+
+
+      <!-- CURRENT IMAGE -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Current Image
+        </label>
+
+        <br>
+
+        <img
+          src="<%= listing.image %>"
+          alt="tourist_image"
+          style="height: 200px; width: 300px; object-fit: cover; border-radius: 10px;"
+        />
+
+      </div>
+
+
+
+      <!-- NEW IMAGE -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Upload New Image
+        </label>
+
+        <input
+          name="listing[image]"
+          type="file"
+          class="form-control"
+        />
+
+      </div>
+
+
+
+      <!-- STATE + CITY -->
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            State
+          </label>
+
+          <input
+            name="listing[state]"
+            value="<%= listing.state %>"
+            type="text"
+            class="form-control"
+            required
+          />
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            City
+          </label>
+
+          <input
+            name="listing[city]"
+            value="<%= listing.city %>"
+            type="text"
+            class="form-control"
+            required
+          />
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CATEGORY -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Category
+        </label>
+
+        <select
+          name="listing[category]"
+          class="form-select"
+          required
+        >
+
+          <option value="Heritage"
+            <%= listing.category === "Heritage" ? "selected" : "" %>>
+            Heritage
+          </option>
+
+          <option value="Nature"
+            <%= listing.category === "Nature" ? "selected" : "" %>>
+            Nature
+          </option>
+
+          <option value="Religious"
+            <%= listing.category === "Religious" ? "selected" : "" %>>
+            Religious
+          </option>
+
+          <option value="Adventure"
+            <%= listing.category === "Adventure" ? "selected" : "" %>>
+            Adventure
+          </option>
+
+        </select>
+
+      </div>
+
+
+
+      <!-- BEST TIME -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Best Time to Visit
+        </label>
+
+        <input
+          name="listing[bestTime]"
+          value="<%= listing.bestTime %>"
+          type="text"
+          class="form-control"
+        />
+
+      </div>
+
+
+
+      <!-- ENTRY FEE + TIMINGS -->
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            Entry Fee
+          </label>
+
+          <input
+            name="listing[entryFee]"
+            value="<%= listing.entryFee %>"
+            type="text"
+            class="form-control"
+          />
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            Timings
+          </label>
+
+          <input
+            name="listing[timings]"
+            value="<%= listing.timings %>"
+            type="text"
+            class="form-control"
+          />
+
+        </div>
+
+      </div>
+
+
+
+      <!-- NEARBY -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Nearby Attractions
+        </label>
+
+        <input
+          name="listing[nearbyAttractions]"
+          value="<%= listing.nearbyAttractions %>"
+          type="text"
+          class="form-control"
+        />
+
+      </div>
+
+
+
+      <!-- MAP LINK -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Google Maps Link
+        </label>
+
+        <input
+          name="listing[mapLink]"
+          value="<%= listing.mapLink %>"
+          type="text"
+          class="form-control"
+        />
+
+      </div>
+
+
+
+      <!-- BUTTON -->
+
+      <button class="btn btn-danger">
+
+        Update Destination
+
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

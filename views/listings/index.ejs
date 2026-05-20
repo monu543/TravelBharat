@@ -1,0 +1,139 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="travel-heading">
+  <h1>Explore Incredible India</h1>
+  <p>Discover Tourist Destinations State-wise</p>
+</div>
+
+<!-- CATEGORY FILTER -->
+
+<div class="container mb-4">
+
+  <div class="d-flex gap-2 flex-wrap justify-content-center">
+
+    <a href="/listings" class="btn btn-outline-dark">
+      All
+    </a>
+
+    <a href="/listings?category=Heritage" class="btn btn-outline-primary">
+      Heritage
+    </a>
+
+    <a href="/listings?category=Nature" class="btn btn-outline-success">
+      Nature
+    </a>
+
+    <a href="/listings?category=Religious" class="btn btn-outline-warning">
+      Religious
+    </a>
+
+    <a href="/listings?category=Adventure" class="btn btn-outline-danger">
+      Adventure
+    </a>
+
+  </div>
+
+</div>
+
+<!-- STATE FILTER -->
+
+<div class="container mb-4">
+
+  <select
+    class="form-select"
+    onchange="window.location.href=this.value"
+  >
+
+    <option selected disabled>
+      Select State
+    </option>
+
+    <option value="/listings?state=Uttar Pradesh">
+      Uttar Pradesh
+    </option>
+
+    <option value="/listings?state=Rajasthan">
+      Rajasthan
+    </option>
+
+    <option value="/listings?state=Goa">
+      Goa
+    </option>
+
+    <option value="/listings?state=Kerala">
+      Kerala
+    </option>
+
+  </select>
+
+</div>
+
+<!-- ICON FILTERS -->
+
+<div id="filters">
+
+  <div class="filter">
+    <div><i class="fa-solid fa-landmark fa-xl"></i></div>
+    <p>Heritage</p>
+  </div>
+
+  <div class="filter">
+    <div><i class="fa-solid fa-tree fa-xl"></i></div>
+    <p>Nature</p>
+  </div>
+
+  <div class="filter">
+    <div><i class="fa-solid fa-place-of-worship fa-xl"></i></div>
+    <p>Religious</p>
+  </div>
+
+  <div class="filter">
+    <div><i class="fa-solid fa-person-hiking fa-xl"></i></div>
+    <p>Adventure</p>
+  </div>
+
+</div>
+
+<!-- LISTINGS -->
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+  <% for(let listing of allListings) { %>
+
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+
+      <div class="card col listing-card">
+
+        <img
+          src="<%= listing.image %>"
+          class="card-img-top"
+          alt="tourist_place"
+          style="height: 20rem"
+        />
+
+        <div class="card-body">
+
+          <p class="card-text">
+
+            <b><%= listing.title %></b>
+
+            <br>
+
+            <%= listing.city %>, <%= listing.state %>
+
+            <br>
+
+            Category:
+            <%= listing.category %>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </a>
+
+  <% } %>
+
+</div>

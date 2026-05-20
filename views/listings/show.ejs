@@ -1,0 +1,92 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-4">
+
+  <div class="col-8 offset-2">
+
+    <h2 class="mb-3"><%= listing.title %></h2>
+
+    <div class="card show-card listing-card">
+
+      <img
+        src="<%= listing.image %>"
+        class="card-img-top show-img"
+        alt="tourist_place"
+        style="height: 30rem; object-fit: cover;"
+      />
+
+      <div class="card-body">
+
+        <h5 class="mb-3">
+          <%= listing.city %>, <%= listing.state %>
+        </h5>
+
+        <p class="card-text">
+          <b>Category:</b>
+          <%= listing.category %>
+        </p>
+
+        <p class="card-text">
+          <b>Description:</b><br>
+          <%= listing.description %>
+        </p>
+
+        <p class="card-text">
+          <b>Best Time to Visit:</b>
+          <%= listing.bestTime %>
+        </p>
+
+        <p class="card-text">
+          <b>Entry Fee:</b>
+          <%= listing.entryFee %>
+        </p>
+
+        <p class="card-text">
+          <b>Timings:</b>
+          <%= listing.timings %>
+        </p>
+
+        <p class="card-text">
+          <b>Nearby Attractions:</b>
+          <%= listing.nearbyAttractions %>
+        </p>
+
+        <p class="card-text">
+          <b>Location:</b><br>
+
+          <a
+            href="<%= listing.mapLink %>"
+            target="_blank"
+            class="btn btn-outline-primary mt-2"
+          >
+            Open in Google Maps
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+    <br>
+
+
+      <a
+        href="/listings/<%= listing._id %>/edit"
+        class="btn btn-warning"
+      >
+        Edit
+      </a>
+
+      <form
+        method="POST"
+        action="/listings/<%= listing._id %>?_method=DELETE"
+        style="display:inline;"
+      >
+        <button class="btn btn-danger">
+          Delete
+        </button>
+      </form>
+
+  </div>
+
+</div>

@@ -1,0 +1,260 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-4">
+
+  <div class="col-8 offset-2">
+
+    <h2 class="mb-4">Add Tourist Destination</h2>
+
+    <form
+      method="POST"
+      action="/listings"
+      class="needs-validation"
+      enctype="multipart/form-data"
+      novalidate
+    >
+
+      <!-- TITLE -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Tourist Place Name
+        </label>
+
+        <input
+          name="listing[title]"
+          placeholder="Enter tourist place name"
+          type="text"
+          class="form-control"
+          required
+        />
+
+      </div>
+
+
+
+      <!-- DESCRIPTION -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Description
+        </label>
+
+        <textarea
+          name="listing[description]"
+          class="form-control"
+          rows="4"
+          required
+        ></textarea>
+
+      </div>
+
+
+
+      <!-- IMAGE -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Upload Destination Image
+        </label>
+
+        <input
+          name="listing[image]"
+          type="file"
+          class="form-control"
+          required
+        />
+
+      </div>
+
+
+
+      <!-- STATE + CITY -->
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            State
+          </label>
+
+          <input
+            name="listing[state]"
+            type="text"
+            class="form-control"
+            placeholder="Enter state"
+            required
+          />
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            City
+          </label>
+
+          <input
+            name="listing[city]"
+            type="text"
+            class="form-control"
+            placeholder="Enter city"
+            required
+          />
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CATEGORY -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Category
+        </label>
+
+        <select
+          name="listing[category]"
+          class="form-select"
+          required
+        >
+
+          <option value="">Select Category</option>
+
+          <option value="Heritage">
+            Heritage
+          </option>
+
+          <option value="Nature">
+            Nature
+          </option>
+
+          <option value="Religious">
+            Religious
+          </option>
+
+          <option value="Adventure">
+            Adventure
+          </option>
+
+        </select>
+
+      </div>
+
+
+
+      <!-- BEST TIME -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Best Time to Visit
+        </label>
+
+        <input
+          name="listing[bestTime]"
+          type="text"
+          class="form-control"
+          placeholder="Example: October to March"
+        />
+
+      </div>
+
+
+
+      <!-- ENTRY FEE + TIMINGS -->
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            Entry Fee
+          </label>
+
+          <input
+            name="listing[entryFee]"
+            type="text"
+            class="form-control"
+            placeholder="Example: ₹50"
+          />
+
+        </div>
+
+        <div class="col-md-6 mb-3">
+
+          <label class="form-label">
+            Timings
+          </label>
+
+          <input
+            name="listing[timings]"
+            type="text"
+            class="form-control"
+            placeholder="Example: 9 AM - 6 PM"
+          />
+
+        </div>
+
+      </div>
+
+
+
+      <!-- NEARBY ATTRACTIONS -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Nearby Attractions
+        </label>
+
+        <input
+          name="listing[nearbyAttractions]"
+          type="text"
+          class="form-control"
+          placeholder="Nearby tourist places"
+        />
+
+      </div>
+
+
+
+      <!-- GOOGLE MAP LINK -->
+
+      <div class="mb-3">
+
+        <label class="form-label">
+          Google Maps Link
+        </label>
+
+        <input
+          name="listing[mapLink]"
+          type="text"
+          class="form-control"
+          placeholder="Paste Google Maps link"
+        />
+
+      </div>
+
+
+
+      <!-- BUTTON -->
+
+      <button class="btn btn-danger">
+
+        Add Destination
+
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

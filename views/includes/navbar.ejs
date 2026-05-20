@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg border-bottom sticky-top">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-plane-departure"></i>
+      TravelBharat
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav me-auto ms-3">
+
+        <a class="nav-link" href="/listings">
+          Explore India
+        </a>
+
+      </div>
+
+      <form 
+        class="d-flex" 
+        role="search"
+        action="/listings"
+        method="GET"
+      >
+
+        <input
+          class="form-control me-2 "
+          type="search"
+          name="Search"
+          placeholder="Search Tourist Places"
+        />
+
+        <button class="btn search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Search
+        </button>
+
+      </form>
+
+      <div class="navbar-nav ms-auto">
+
+        <a class="nav-link" href="/listings/new">
+          Add Destination
+        </a>
+
+        <% if(!locals.currUser) { %>
+
+          <a class="nav-link" href="/signup">
+            Sign Up
+          </a>
+
+          <a class="nav-link" href="/login">
+            Login
+          </a>
+
+        <% } else { %>
+
+          <a class="nav-link" href="/logout">
+            Logout
+          </a>
+
+        <% } %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav>
